@@ -1,0 +1,19 @@
+
+
+SELECT (MIN(xsd:float(?Instances))/MAX(xsd:float(?Instances)) AS ?overlap) WHERE {
+  {
+    SELECT (COUNT(DISTINCT *) AS ?Instances) WHERE {
+      SELECT ?o1 WHERE {
+        wd:Q3290404 wdt:P1196 ?o1.
+      }
+    }      
+  }
+ UNION 
+  {
+    SELECT (COUNT(DISTINCT *) AS ?Instances) WHERE {
+      SELECT ?o2 WHERE {
+        wd:Q3290404 wdt:P509 ?o2.
+      }
+    }      
+  } 
+}
